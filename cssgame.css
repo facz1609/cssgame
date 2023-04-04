@@ -1,43 +1,87 @@
 .game{
-    border: dotted black 2px;
-    height: 500px;
-    width: 500px;
-    background-color: azure;
+    border: dotted black 1px;
+    height: 504px;
+    width: 505px;
+    background-color:lightcyan;
     margin: 50px;
+    
+    transition: 0.3s;
+}
+.game:active{
+    transition: 0.3s;
+    transform: translate(-10px ,-10px);
+    -webkit-transform: translate(-10px ,-10px);
+    -moz-transform: translate(-10px ,-10px);
+    -ms-transform: translate(-10px ,-10px);
+    -o-transform: translate(-10px ,-10px);
+    box-shadow:grey 20px 30px 20px;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    -o-transition: 0.3s;
 }
 .box{
     display: inline-block;
-    border: solid 1px black;
+    border: solid 3px black;
+    border-radius: 50%;
     height: 50px;
     width: 50px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
+
 .player{
     transform: translateY(225px);
     -webkit-transform: translateY(225px);
     -moz-transform: translateY(225px);
     -ms-transform: translateY(225px);
     -o-transform: translateY(225px);
-    background-color: blue;
+    background-color: white;
     animation: move 4s linear  infinite  ;
     -webkit-animation: move 4s  infinite linear ;
     animation-play-state: paused;
 }
+
 .game:active .player{
     animation-play-state: running;
 }
+
 .enemy{
-    margin-left: 100px;
-    background-color: orangered;
+    margin-left: 15px;
+}
+
+.enemy.one , .enemy.two , .enemy.three{
+   
+    background-color: rgb(170, 15, 149);
     animation-name: bounce;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
 }
 .enemy.one{
-    animation-duration: 2s;
+    animation-duration: 5s;
 }
 .enemy.two{
-    animation-duration: 4s;
+    animation-duration: 3s;
 }
+.enemy.three{
+    animation-duration: 1s;
+}
+
+.enemy.four, .enemy.five{
+   
+    background-color: rgb(170, 15, 149);
+    animation: reversebounce  linear  infinite ;
+    -webkit-animation: reversebounce  linear  infinite ;
+}
+.enemy.four{
+    animation-duration: 3s;
+}
+.enemy.five{
+    animation-duration: 5s;
+}
+
 @keyframes bounce{
     50%{
         transform: translateY(450px);
@@ -47,6 +91,7 @@
         -o-transform: translateY(450px);
 }
 }
+
 @keyframes move{
     50%{
         transform: translateX(450px) translateY(225px);
@@ -54,5 +99,29 @@
         -moz-transform: translateX(450px) translateY(225px);
         -ms-transform: translateX(450px) translateY(225px);
         -o-transform: translateX(450px) translateY(225px);
+}
+}
+
+@keyframes reversebounce {
+0%{
+    transform: translateY(450px);
+    -webkit-transform: translateY(450px);
+    -moz-transform: translateY(450px);
+    -ms-transform: translateY(450px);
+    -o-transform: translateY(450px);
+}
+50%{
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+}
+100%{
+    transform: translateY(450px);
+        -webkit-transform: translateY(450px);
+        -moz-transform: translateY(450px);
+        -ms-transform: translateY(450px);
+        -o-transform: translateY(450px);
 }
 }
